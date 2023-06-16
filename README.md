@@ -1,3 +1,5 @@
+You can check the full Documentation here (You must logged in to AUTH0): https://manage.auth0.com/dashboard/us/dev-nzxgardmnpgvniqf/applications/p7LX8hbgEKm7cQQQMi0nqRMybRV0u1Em/quickstart/python 
+
 # Configure Auth0
 When you signed up for Auth0, a new application was created for you, or you could have created a new one. You will need some details about that application to communicate with Auth0. You can get these details from the Application Settings section in the Auth0 dashboard.
 You need the following information:
@@ -65,4 +67,61 @@ oauth.register(
     server_metadata_url=f'https://{env.get("AUTH0_DOMAIN")}/.well-known/openid-configuration'
 )
 
+## Setup your routes
+### For this demonstration, we'll be adding 4 routes for your application: your login, callback, logout and home routes.
 
+## Triggering authentication with /login
+### When visitors to your app visit the /login route, they'll be redirected to Auth0 to begin the authentication flow.
+👆 We're continuing from the steps above. Append this to your server.py file.
+
+@app.route("/login")
+def login():
+    return oauth.auth0.authorize_redirect(
+        redirect_uri=url_for("callback", _external=True)
+)
+
+## Finalizing authentication with /callback
+### After your users finish logging in with Auth0, they'll be returned to your application at the /callback route. This route is responsible for actually saving the session for the user, so when they visit again later, they won't have to sign back in all over again.
+
+👆 We're continuing from the steps above. Append this to your server.py file.
+
+@app.route("/callback", methods=["GET", "POST"])
+def callback():
+    token = oauth.auth0.authorize_access_token()
+    session["user"] = token
+    return redirect("/")
+
+## Clearing a session with /logout
+### As you might expect, this route handles signing a user out from your application. It will clear the user's session in your app, and briefly redirect to Auth0's logout endpoint to ensure their session is completely clear, before they are returned to your home route (covered next.)
+
+👆 We're continuing from the steps above. Append this to your server.py file.
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(
+        "https://" + env.get("AUTH0_DOMAIN")
+        + "/v2/logout?"
+        + urlencode(
+            {
+                "returnTo": url_for("home", _external=True),
+                "client_id": env.get("AUTH0_CLIENT_ID"),
+            },
+            quote_via=quote_plus,
+        )
+    )
+
+## There's no place like /home
+### Last but not least, your home route will serve as a place to either render an authenticated user's details, or offer to allow visitors to sign in.
+👆 We're continuing from the steps above. Append this to your server.py file.
+
+@app.route("/")
+def home():
+    return render_template("home.html", session=session.get('user'), pretty=json.dumps(session.get('user'), indent=4))
+
+## Server instantiation
+### Finally, you'll need to add some small boilerplate code for Flask to actually run your app and listen for connections.
+👆 We're continuing from the steps above. Append this to your server.py file.
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=env.get("PORT", 3000))
