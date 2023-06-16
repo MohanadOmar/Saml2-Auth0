@@ -1,6 +1,6 @@
 You can check the full Documentation here (You must logged in to AUTH0): https://manage.auth0.com/dashboard/
 
-# You must create account on Auth0 then create new application
+# You must create account on Auth0 then create new application first then follow these instruction.
 ### You can login to AUTH0 from here: https://auth0.auth0.com/u/login/identifier?state=hKFo2SByTUFCcmJmZkVjTHBaeDZkdWdEa3AtU2VXWjBhTXc2NKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHN0UUFUb1dmaWxPcTRWT3lXcDFvZkNSeFpuMC00MUpBo2NpZNkgYkxSOVQ1YXI2bkZ0RE80ekVyR1hkb3FNQ000aU5aU1Y
 
 # Configure Auth0
