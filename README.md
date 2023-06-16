@@ -1,54 +1,17 @@
-# GÉANT T&I Devops Engineer Assessment
+# Configure Auth0
+When you signed up for Auth0, a new application was created for you, or you could have created a new one. You will need some details about that application to communicate with Auth0. You can get these details from the Application Settings section in the Auth0 dashboard.
+You need the following information:
+- Domain
+- Client ID
+- Client Secret
+## Configure Callback URLs
+A callback URL is a URL in your application where Auth0 redirects the user after they have authenticated. The callback URL for your app must be added to the Allowed Callback URLs field in your Application Settings. If this field is not set, users will be unable to log in to the application and will get an error.
+##Configure Logout URLs
+A logout URL is a URL in your application that Auth0 can return to after the user has been logged out of the authorization server. This is specified in the returnTo query parameter. The logout URL for your app must be added to the Allowed Logout URLs field in your Application Settings. If this field is not set, users will be unable to log out from the application and will get an error.
 
-## Introduction
-
-This repository contains a trivial Flask
-application that serves "Hello, World" on "/"
-
-## Running the Current State of the Web Service
 
 * Ensure you have a relatively recent version
   of Python 3.x installed on your system
 
-* Create and enter a Python virtual environment.  For example:
 
-```bash
-$ git clone https://github.com/erik-geant/saml2_exercise.git
-$ cd saml2_exercise
-# can be any reasonable python 3.x version
-$ python3.10 -m venv venv
-$ . venv/bin/activate
-(venv) $ pip install -e .
-```
-
-* Run the Web Service
-
-```bash
-(venv) $ python -m saml2_exercise.server
-```
-
-* Verify the Web Service is Serving on 8989
-
-```bash
-# in another shell:
-$ curl http://localhost:8989/
-```
-
-## Assignment
-Federate the web service as a SAML 2.0 Service Provider.
-
-Our IDP metatdata can be found here:
-
-  * https://test-idp-o365.geant.org/saml2/idp/metadata.php
-
-
-Be sure to ask for any support needed
-(for example, server-side configuration changes)
-to enable authentication of your Service Provider
-using our IDP.
-
-In the end, you should be able to
-demonstrate that a user is required to
-successfully authenticate against our IDP
-in order to access the "/" resource.
 
