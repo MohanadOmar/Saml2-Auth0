@@ -1,5 +1,5 @@
-You can check the full Documentation here (You must logged in to AUTH0): https://manage.auth0.com/dashboard/
-You can login to AUTH0 from here: https://auth0.auth0.com/u/login/identifier?state=hKFo2SByTUFCcmJmZkVjTHBaeDZkdWdEa3AtU2VXWjBhTXc2NKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHN0UUFUb1dmaWxPcTRWT3lXcDFvZkNSeFpuMC00MUpBo2NpZNkgYkxSOVQ1YXI2bkZ0RE80ekVyR1hkb3FNQ000aU5aU1Y
+### You can check the full Documentation here (You must logged in to AUTH0): https://manage.auth0.com/dashboard/
+### You can login to AUTH0 from here: https://auth0.auth0.com/u/login/identifier?state=hKFo2SByTUFCcmJmZkVjTHBaeDZkdWdEa3AtU2VXWjBhTXc2NKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHN0UUFUb1dmaWxPcTRWT3lXcDFvZkNSeFpuMC00MUpBo2NpZNkgYkxSOVQ1YXI2bkZ0RE80ekVyR1hkb3FNQ000aU5aU1Y
 
 # Configure Auth0
 When you signed up for Auth0, a new application was created for you, or you could have created a new one. You will need some details about that application to communicate with Auth0. You can get these details from the Application Settings section in the Auth0 dashboard.
