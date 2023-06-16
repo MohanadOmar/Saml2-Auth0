@@ -6,10 +6,10 @@ You need the following information:
 - Client Secret
 ## Configure Callback URLs
 A callback URL is a URL in your application where Auth0 redirects the user after they have authenticated. The callback URL for your app must be added to the Allowed Callback URLs field in your Application Settings. If this field is not set, users will be unable to log in to the application and will get an error.
-##Configure Logout URLs
+## Configure Logout URLs
 A logout URL is a URL in your application that Auth0 can return to after the user has been logged out of the authorization server. This is specified in the returnTo query parameter. The logout URL for your app must be added to the Allowed Logout URLs field in your Application Settings. If this field is not set, users will be unable to log out from the application and will get an error.
 
-##Install dependencies
+## Install dependencies
 - flask>=2.0.3
 - python-dotenv>=0.19.2
 - authlib>=1.0
